@@ -34,7 +34,7 @@ class MultiThreadEchoHandler implements Runnable {
         //向sk选择键注册Read就绪事件
         sk.interestOps(SelectionKey.OP_READ);
 
-        //唤醒选择，是的OP_READ生效
+        //唤醒选择，使得OP_READ生效
         selector.wakeup();
         Logger.info("新的连接 注册完成");
 

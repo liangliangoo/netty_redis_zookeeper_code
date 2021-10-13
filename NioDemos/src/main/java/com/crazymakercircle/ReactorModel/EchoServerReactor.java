@@ -34,6 +34,8 @@ class EchoServerReactor implements Runnable {
         SelectionKey sk =
                 serverSocket.register(selector, SelectionKey.OP_ACCEPT);
         //attach callback object, AcceptorHandler
+        // attach(Obj) 这是一个重要的方法，他可以将任何的object添加到SelectorKey实例，相当于setter方法
+        // attachment() 能够拿到attach(o) 到SelectionKey上的实例，相当于getter方法
         sk.attach(new AcceptorHandler());
     }
 
@@ -46,6 +48,7 @@ class EchoServerReactor implements Runnable {
                 while (it.hasNext()) {
                     //Reactor负责dispatch收到的事件
                     SelectionKey sk = it.next();
+                    // 将event交给Handler处理
                     dispatch(sk);
                 }
                 selected.clear();
