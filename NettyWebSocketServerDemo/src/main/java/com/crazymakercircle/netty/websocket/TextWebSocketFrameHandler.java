@@ -1,7 +1,7 @@
 package com.crazymakercircle.netty.websocket;
 
 
-import com.crazymakercircle.util.Dateutil;
+import com.crazymakercircle.util.DateUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
@@ -24,7 +24,7 @@ public class TextWebSocketFrameHandler extends SimpleChannelInboundHandler<WebSo
             String request = ((TextWebSocketFrame) frame).text();
             log.debug("服务端收到：" + request);
             //回显字符串
-            String echo = Dateutil.getTime() + "：" + request;
+            String echo = DateUtil.getTime() + "：" + request;
             TextWebSocketFrame echoFrame = new TextWebSocketFrame(echo);
             // 发送回显字符串
             ctx.channel().writeAndFlush(echoFrame);

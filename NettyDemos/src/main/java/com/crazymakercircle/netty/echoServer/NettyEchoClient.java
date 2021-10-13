@@ -1,7 +1,7 @@
 package com.crazymakercircle.netty.echoServer;
 
 import com.crazymakercircle.netty.NettyDemoConfig;
-import com.crazymakercircle.util.Dateutil;
+import com.crazymakercircle.util.DateUtil;
 import com.crazymakercircle.util.Logger;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
@@ -72,7 +72,7 @@ public class NettyEchoClient {
             while (scanner.hasNext()) {
                 //获取输入的内容
                 String next = scanner.next();
-                byte[] bytes = (Dateutil.getNow() + " >>" + next).getBytes("UTF-8");
+                byte[] bytes = (DateUtil.getNow() + " >>" + next).getBytes("UTF-8");
                 //发送ByteBuf
                 ByteBuf buffer = channel.alloc().buffer();
                 buffer.writeBytes(bytes);

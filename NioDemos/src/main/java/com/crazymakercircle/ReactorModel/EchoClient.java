@@ -1,7 +1,7 @@
 package com.crazymakercircle.ReactorModel;
 
 import com.crazymakercircle.NioDemoConfig;
-import com.crazymakercircle.util.Dateutil;
+import com.crazymakercircle.util.DateUtil;
 import com.crazymakercircle.util.Logger;
 
 import java.io.IOException;
@@ -70,7 +70,7 @@ public class EchoClient {
                             if (scanner.hasNext()) {
                                 SocketChannel socketChannel = (SocketChannel) sk.channel();
                                 String next = scanner.next();
-                                buffer.put((Dateutil.getNow() + " >>" + next).getBytes());
+                                buffer.put((DateUtil.getNow() + " >> " + next).getBytes());
                                 buffer.flip();
                                 // 操作三：发送数据
                                 socketChannel.write(buffer);
